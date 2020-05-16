@@ -1,11 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import './Layout.css';
 
-const Layout = () => {
+const Layout = ({children}) => {
     return (
-        <div>
-            <h1>Hello Layout</h1>
+        <div className="flexBoxBase">
+            {children}
         </div>
     )
+}
+
+Layout.propTypes = {
+    children : PropTypes.element
 }
 
 export default Layout;
