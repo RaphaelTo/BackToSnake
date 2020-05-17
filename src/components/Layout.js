@@ -1,17 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import './Layout.css';
+import styled from 'styled-components';
 
-const Layout = ({children}) => {
+const FlexboxBase = styled.div` 
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+`
+
+export default function Layout({children}) {
     return (
-        <div className="flexBoxBase">
+        <FlexboxBase>
             {children}
-        </div>
+        </FlexboxBase>
     )
 }
 
 Layout.propTypes = {
     children : PropTypes.element
 }
-
-export default Layout;
