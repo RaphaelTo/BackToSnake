@@ -1,9 +1,42 @@
-.menu {
-
-}
-
 .menu h1 {
+    margin: 0;
     font-size: 90px;
     text-shadow: 15px -4px #25dd4b;
     letter-spacing: 0.1em;
+    padding: 15px;
 }
+
+.menu a {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #f4f4fe;
+    padding: 20px 20px;
+    font-size: 80px;
+    text-decoration: none;
+    color: #f4f4fe;
+}
+
+.menu a:hover {
+    text-shadow: 15px -4px #25dd4b;
+    letter-spacing: 0.1em;
+    -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+
+@-webkit-keyframes shadow-pop-tr {
+
+  }
+  @keyframes shadow-pop-tr {
+    0% {
+      -webkit-text-shadow: 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b;
+            text-shadow: 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b, 0 0 #25dd4b;
+      -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+    }
+    100% {
+      -webkit-text-shadow: 1px -1px #25dd4b, 2px -2px #25dd4b, 3px -3px #25dd4b, 4px -4px;
+            text-shadow: 1px -1px #25dd4b, 2px -2px #25dd4b, 3px -3px #25dd4b, 4px -4px; 
+      -webkit-transform: translateX(-4px) translateY(4px);
+            transform: translateX(-4px) translateY(4px);
+    }
+  }
