@@ -17,5 +17,5 @@ export default function BorderGame({children}) {
 }
 
 BorderGame.propTypes = {
-    children : PropTypes.element
+    children : PropTypes.node
 }
