@@ -3,11 +3,19 @@
     src: url("/font/facon.otf") format("truetype")
   }
 
-body, html, #root {
+body, html, #root, .level {
     height: 100%;
     width: 100%;
     margin: 0;
     background-color: #31313a;
     color: #f4f4fe;
     font-family: "facon";
+}
+
+.level {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
