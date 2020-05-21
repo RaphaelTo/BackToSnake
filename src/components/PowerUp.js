@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function PowerUp({position}) {
+export default function PowerUp({positionPowerUp}) {
     const betaPowerUp = {
         position: 'absolute',
-        left: '53%',
-        top: '48%',
+        left: `${positionPowerUp.y}px`,
+        top: `${positionPowerUp.x}px`,
         border: '5px solid green',
         backgroundColor: 'green',
     }
@@ -18,5 +18,5 @@ export default function PowerUp({position}) {
 }
 
 PowerUp.propTypes = {
-    position : PropTypes.object
+    positionPowerUp : PropTypes.object
 }
