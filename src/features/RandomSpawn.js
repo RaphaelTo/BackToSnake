@@ -3,12 +3,14 @@ export default class RandomSpawn {
         this.height = height;
         this.width = width;
     }
-    
-    randomSpawnPowerUp() {
-       return Math.floor(Math.random() * 6) + 1  
-    }
 
-    RandomSpawnEnnemy() {
-        return Math.floor(Math.random() * 6) + 1  
+    randomSpawn() {
+        const { minHeight, maxHeight } = this.height;
+        const { minWidth, maxWidth } = this.width;
+        
+        const randHeight = Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
+        const randWidth =  Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth; 
+
+        return {x: randHeight, y: randWidth}
     }
 }
