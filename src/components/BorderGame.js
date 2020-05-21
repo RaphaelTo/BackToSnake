@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -8,14 +8,21 @@ const Border = styled.div`
     width: 60%;
 `
 
-export default function BorderGame({children}) {
+export default function BorderGame({children, getRef}) {
+    const refDiv = useRef();
+    
+    useEffect(() => {
+        getRef(refDiv);
+    }, [refDiv])
+    
     return (
-        <Border>
+        <Border ref={refDiv}>
             {children}
         </Border>
     )
 }
 
 BorderGame.propTypes = {
-    children : PropTypes.node
+    children : PropTypes.node,
+    getRef: PropTypes.func
 }
