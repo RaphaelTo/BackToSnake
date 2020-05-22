@@ -4,6 +4,9 @@ export default class RandomSpawn {
         this.width = width;
     }
 
+    /**
+     * Method go to generate random position
+     */
     randomSpawn() {
         const { minHeight, maxHeight } = this.height;
         const { minWidth, maxWidth } = this.width;
