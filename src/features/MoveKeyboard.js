@@ -18,3 +18,23 @@ export const moveSnakeWithKeyboard = ({key}, setMove) => {
         setMove({y : 1})
     }
 }
+
+export const changePositionCSSSnake = (props, XPosition, YPosition, speed) => {
+    const {xPosition, setXPosition} = XPosition;
+    const {yPosition, setYPosition} = YPosition;
+
+    if(Object.keys(props)[0] === "x"){
+        if(props.x === -1){
+            setXPosition((props.x + xPosition) - speed)
+        }else{
+            setXPosition(props.x + xPosition + speed)
+        }
+    }
+    if(Object.keys(props)[0] === "y"){
+        if(props.y === -1){
+            setYPosition((props.y + yPosition) - speed)
+        }else{
+            setYPosition(props.y + yPosition + speed)
+        }
+    }
+}
