@@ -6,7 +6,7 @@ import { moveSnakeWithKeyboard } from '../../features/moveKeyboard';
 import RandomSpawn from '../../features/RandomSpawn';
 
 export default function Lvl1() {
-    const [positionSnake, setPositionSnake] = useState({x: 0, y:0});
+    const [positionSnake, setPositionSnake] = useState({});
     const [positionBorder, setPositionBorder] = useState();
     const [randPowerUp, setRandPowerUp] = useState({})
     
