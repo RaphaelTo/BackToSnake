@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { changePositionCSSSnake } from '../features/moveKeyboard';
 //import SnakeSVG from './SnakeSVG';
 
-export default function Snake({positionSnake}) {
+export default function Snake({keySnake, getPositionSnake}) {
     const [speed] = useState(3);
     const [xPosition, setXPosition] = useState(window.innerHeight / 2);
     const [yPosition, setYPosition] = useState(window.innerWidth / 2);
@@ -28,8 +28,9 @@ export default function Snake({positionSnake}) {
     };
 
     useEffect(() => {
-        changePositionCSSSnake(positionSnake, X, Y, speed);
-    }, [positionSnake])
+        changePositionCSSSnake(keySnake, X, Y, speed);
+        getPositionSnake({x: xPosition, y: yPosition});
+    }, [keySnake])
 
 
     return (
@@ -40,5 +41,6 @@ export default function Snake({positionSnake}) {
 }
 
 Snake.propTypes = {
-    positionSnake : PropTypes.object,
+    keySnake : PropTypes.object,
+    getPositionSnake: PropTypes.func
 }
