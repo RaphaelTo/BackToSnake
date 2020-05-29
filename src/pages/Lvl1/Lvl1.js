@@ -4,12 +4,14 @@ import Snake from '../../components/Snake';
 import PowerUp from '../../components/PowerUp';
 import { moveSnakeWithKeyboard } from '../../features/moveKeyboard';
 import RandomSpawn from '../../features/RandomSpawn';
+import Collision from '../../features/Collision';
 
 export default function Lvl1() {
-    const [positionSnake, setPositionSnake] = useState({});
+    const [detectionKeySnake, setDetectionKeySnake] = useState({});
     const [positionBorder, setPositionBorder] = useState();
     const [randPowerUp, setRandPowerUp] = useState({})
-    
+    const [positionSnake, setPositionSnake] = useState({})
+
     const getRef = (e) => {
         const { top, bottom, left, right } = e.current.getBoundingClientRect();
         setPositionBorder({
@@ -24,19 +26,28 @@ export default function Lvl1() {
         })
     };
 
+    const getPositionSnake = (position) => {
+        setPositionSnake(position)
+    }
+
     useEffect(() => {
         if(positionBorder !== undefined){
-            //console.log(positionBorder)
             const randObject = new RandomSpawn(positionBorder.height, positionBorder.width);
             const randNumber = randObject.randomSpawn();
             setRandPowerUp(randNumber);
         }
-    }, [positionBorder])
+    },[positionBorder])
+
+    useEffect(() => {
+        const collision = new Collision(randPowerUp.x, randPowerUp.y);
+        collision.detectorCollision(positionSnake);
+
+    }, [randPowerUp,positionSnake])
 
     return (
-        <div className="level" tabIndex="0" onKeyDownCapture={e => moveSnakeWithKeyboard(e, setPositionSnake)}>
+        <div className="level" tabIndex="0" onKeyDownCapture={e => moveSnakeWithKeyboard(e, setDetectionKeySnake)}>
             <BorderGame getRef={getRef}>
-                <Snake positionSnake={positionSnake}/>
+                <Snake keySnake={detectionKeySnake} getPositionSnake={getPositionSnake}/>
                 <PowerUp positionPowerUp={randPowerUp}/>
                 <h1>Ennemie</h1>
             </BorderGame>
